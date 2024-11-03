@@ -1,7 +1,7 @@
 import {Router} from "express";
 import {registerUser} from "../controller/user.controller.js";
-const router = rexpress.Router()
+const router = Router()
 
-// router.route("/register").post(registerUser)
-router.post("/register", registerUser);
-export default router;
+router.route("/register").post(registerUser)
+
+export default router

@@ -17,6 +17,9 @@ app.use(express.urlencoded({ extended: true, limit }));
 app.use(express.static("public")); // we can store images(public assets) here
 app.use(cookieParser());
 
+app.get("/test", (req, res) => {
+  res.send("Test route is working!");
+});
 //routes import 
 import userRouter from './routes/user.routes.js'
 
