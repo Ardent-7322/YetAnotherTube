@@ -12,7 +12,7 @@ router.route("/register").post(
             maxCount:1
         },
         {
-            name:"CoverImage",
+            name:"coverImage",
             maxCount: 1
         }
 
@@ -20,9 +20,9 @@ router.route("/register").post(
     registerUser
 );
 
-// Add a test GET route
-router.get("/test", (req, res) => {
-    res.json({ message: "User routes are working!" });
-});
+// // Add a test GET route
+// router.get("/test", (req, res) => {
+//     res.json({ message: "User routes are working!" });
+// });
 
 export default router;

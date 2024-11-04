@@ -35,43 +35,14 @@ import userRouter from './routes/user.routes.js'
 // Route mounting - Note the starting slash
 app.use("/api/users", userRouter);
 
-// 404 handler
-app.use((req, res) => {
-    res.status(404).json({
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500
+    res.status(statusCode).json({
         success: false,
-        message: `Route ${req.path} not found`
-    });
-});
+        message: err.message || "Internal Server Error",
+        errors: err.errors || [],
+    })
+})
 
 export { app };
 
-
-// import express from "express";
-// import cors from "cors";
-// import cookieParser from "cookie-parser";
-
-// const app = express();
-
-// app.use(
-//   cors({
-//     origin: process.env.CORS_ORIGIN,
-//     credentials: true,
-//   })
-// );
-
-// app.use(express.json({ limit: "16kb" }));
-// app.use(express.urlencoded({ extended: true, limit: "16kb" }));
-// app.use(express.static("public"));
-// app.use(cookieParser());
-
-// app.get("/test", (req, res) => {
-//   res.send("Test route is working!");
-// });
-
-// //routes import 
-// import userRouter from './routes/user.routes.js'
-
-// //routes declaration
-// app.use("/api/users", userRouter)
-
-// export { app };
