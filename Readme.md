@@ -31,12 +31,10 @@ YetAnotherTube is a video streaming platform, where users can create accounts, l
 
 2. **Navigate to the project directory**:
 
-````bash
 cd YetAnotherTube
 
 3.**Install dependencies**:
 
-```bash
 npm install
 Environment Variables: Create a .env file in the root directory and add the following variables:
 
